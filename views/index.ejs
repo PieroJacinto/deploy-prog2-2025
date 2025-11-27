@@ -1,0 +1,51 @@
+<%- include('partials/header.ejs') %>
+    <main>
+        <div class="slider-frame"> 
+            <ul>
+                <li><img src="images/slide01.jpg" alt=""></li>
+                <li><img src="images/slide02.jpg" alt=""></li>
+                <li><img src="images/slide03.jpg" alt=""></li>
+                <li><img src="images/slide04.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="introvideo"> 
+            <video id="videos" width="400" height="640" autoplay loop muted>
+                <source src="videos/videoportada1.mp4" type="video/mp4">
+            </video>
+            <video id="videos" width="400" height="640" autoplay loop muted>
+                <source src="videos/videoportada2.mp4" type="video/mp4">
+            </video>            
+        </div>
+        <section id="productos">
+            <h2>DESCUBRÍ NUESTROS PRODUCTOS</h2>
+            <div class="contProductos">
+                <!-- <a href="combos.html" class="btn">
+                    <div class="productocard">
+                        <img src="images/Combo01.jpeg" alt="combos">
+                        <h3>Combos</h3>
+                    </div>
+                </a> -->
+                <a href="/productos" class="btn">
+                    <div class="productocard">
+                        <img src="images/Portada1.jpg" alt="velas">
+                        <h3>Productos</h3>
+                    </div>
+                </a>
+                <a href="/infoaromas" class="btn">
+                    <div class="productocard">
+                        <img src="images/Esencia01.jpg" alt="esencias">
+                        <h3>Aromas</h3>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="phone">
+                <a href="https://wa.me/+5493407445255?text=Hola" target="_blank">
+                    <img src="images/whatsapp.png" alt="whatsapp">
+                </a>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/footer.ejs') %>

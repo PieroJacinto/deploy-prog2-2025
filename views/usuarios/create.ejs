@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+
+<% if (errors.length > 0) { %>
+        <div class="error-box">
+            <strong>⚠️ Por favor corrige los siguientes errores:</strong>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <h2>Nuevo usuario</h2>
+    <form class="formNew" action="/usuarios/create" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" name="nombre" type="text" value="<%= oldData.nombre || '' %>">
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="text" value="<%= oldData.email || '' %>">
+        </div>
+
+        <div>
+            <label for="imagen_usuario">Imagen de perfil</label>
+            <input type="file"
+                    id="imagen_usuario"
+                    name="imagen_usuario"
+                    accept="image/*"
+            >
+        </div>
+
+        <button type="submit">Crear Usuario</button>
+        <a href="/usuarios">Cancelar</a>
+
+    </form>
+<%- include('../partials/footer.ejs') %>

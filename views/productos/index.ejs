@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+
+<div class="product-all">
+  <a href="/productos/create">Agregar producto</a>
+</div>
+
+<div class="productos-contenedor">
+  <aside class="filtros">
+    <h3>Productos</h3>
+    <form id="filtrosCategorias">
+      <% categorias.forEach(categoria => { %>
+        <label id="labelProductos">
+          <input id="inputProductos" type="checkbox" name="categoria" value="<%= categoria.nombre %>" checked>
+          <%= categoria.nombre %>
+        </label>
+      <% }) %>
+    </form>
+  </aside>
+
+  <section id="velas">
+    <div class="contVelas">
+      <% productos.forEach(producto => { 
+          const nombresCategorias = producto.categorias.map(c => c.nombre).join(' ');
+      %>
+        <a class="velacardAll" 
+           href="/productos/show/<%= producto.id %>" 
+           data-categorias="<%= nombresCategorias %>">
+          <div class="velacard" id="vela<%= producto.id %>">
+
+            <% if (producto.imagenes && producto.imagenes.length > 0) { %>
+              <img src="<%= producto.imagenes[0].imagen %>" alt="Vela <%= producto.nombre %>" />
+              <% if (producto.imagenes.length > 1) { %>
+                <img class="hover-image" src="<%= producto.imagenes[1].imagen %>" alt="Vela <%= producto.nombre %> Hover" />
+              <% } %>
+            <% } else { %>
+              <img src="/images/no-image.jpg" alt="Sin imagen disponible" />
+            <% } %>
+
+            <p>Vela: <%= producto.nombre %></p>
+            <h3>$ <%= Number(producto.precio).toLocaleString('es-AR', { minimumFractionDigits: 0 }) %></h3>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+</div>
+<script src="/js/indexProductos.js"></script>
+
+<%- include('../partials/footer.ejs') %>

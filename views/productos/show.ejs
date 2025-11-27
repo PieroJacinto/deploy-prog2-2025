@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="producto-detalle">
+    <% if (producto.imagenes && producto.imagenes.length > 0) { %>         
+        <div>
+            <h3>Imágenes del producto (<%= producto.imagenes.length %>):</h3>
+            <div class="producto-imagenes">
+                <% producto.imagenes.forEach((imagen, index) => { %>
+                    <img src="<%= imagen.imagen %>" alt="<%= producto.nombre %> - imagen - <%= index + 1 %>">
+                <% }) %>
+            </div>
+        </div>
+    <% } else { %>
+        <p class="sin-imagenes">Sin imágenes disponibles para este producto</p>
+    <% } %>
+
+    <h2><%= producto.nombre %></h2>
+    <p><strong>Precio:</strong> $ <%= Number(producto.precio).toLocaleString('es-AR', { minimumFractionDigits: 0 }) %></p>
+    <p><strong>Descripción:</strong> <%= producto.descripcion %></p>
+
+    <h3>Dueño:</h3>
+    <a href="/usuarios/<%= producto.dueño.id %>"><%= producto.dueño.nombre %></a>
+
+    <h3>Categorías:</h3>
+    <% if (producto.categorias.length > 0) { %>
+        <% producto.categorias.forEach(categoria => { %>
+            <p><%= `${categoria.nombre}: ${categoria.descripcion}` %></p>
+        <% }) %>              
+    <% } else { %>
+        <p>Sin categorías</p>
+    <% } %>
+
+    <div>
+        <a href="/productos">Volver a productos</a>
+        <a href="/productos/edit/<%= producto.id %>">Editar</a>
+
+        <form action="/productos/<%= producto.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Eliminar producto?')">
+            <button type="submit">Eliminar</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

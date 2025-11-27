@@ -1,0 +1,93 @@
+<%- include('../partials/header.ejs') %>
+
+<% if (errors.length > 0) { %>
+        <div class="error-box">
+            <strong>⚠️ Por favor corrige los siguientes errores:</strong>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+<div class="new-product">
+    <h2>Nuevo producto</h2>
+    <form action="/productos/create" method="POST" enctype="multipart/form-data" novalidate>
+        <div>
+            <label for="nombre">Nombre del Producto</label>
+            <input type="text"
+                    id="nombre"
+                    name="nombre"
+                    value="<%= oldData.nombre || '' %>">
+        </div>
+
+        <div>
+            <label for="precio">Precio</label>
+            <input type="number"
+                    id="precio"
+                    name="precio"
+                    step="0.01"
+                    value="<%= oldData.precio || '' %>">
+        </div>
+
+        <div>
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion"
+                    id="descripcion"><%= oldData.descripcion || '' %></textarea>
+        </div>
+
+        <div>
+            <label for="usuario_id">Dueño</label>
+            <select name="usuario_id" id="usuario_id">
+                <option value="">Seleccionar Usuario</option>
+                <% usuarios.forEach(usuario => { %>
+                    <option value="<%= usuario.id %>" <%= (oldData.usuario_id == usuario.id) ? 'selected' : '' %>>
+                        <%= usuario.nombre %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label for="imagenes_producto">Imágenes del producto (1-5)</label>
+            <input  type="file"
+                    id="imagenes_producto"
+                    name="imagenes_producto"
+                    accept="image/*"
+                    multiple
+                    required
+            >
+            <small>Selecciona hasta 5 imágenes. Máximo 5MB cada una. Formatos: JPG, PNG, GIF</small>
+        </div>
+
+        <div class="container-checkbox">
+            <label>Categorías</label>
+            <div class="checkbox-group">
+                <% 
+                let categoriasSeleccionadas = [];
+                if (oldData.categorias) {
+                    categoriasSeleccionadas = Array.isArray(oldData.categorias) 
+                        ? oldData.categorias 
+                        : [oldData.categorias];
+                }
+                %>
+                <% categorias.forEach(categoria => { %>
+                    <div class="checkbox-item">
+                        <input  type="checkbox"
+                                id="cat_<%= categoria.id %>"
+                                name="categorias"
+                                value="<%= categoria.id %>"
+                                <%= categoriasSeleccionadas.includes(categoria.id.toString()) ? 'checked' : '' %>
+                        >
+                        <label for="cat_<%= categoria.id %>"><%= categoria.nombre %></label>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <button type="submit">Crear Producto</button>
+        <a href="/productos">Cancelar</a>
+    </form>
+</div>
+<%- include('../partials/footer.ejs') %>

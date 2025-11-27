@@ -1,0 +1,277 @@
+header {
+  position: sticky;
+  /* top: -112px; */
+}
+
+.infoaroma p {
+  color: #000000;
+  font-size: large;
+  margin: 10px;
+  padding: 10px;
+  font-family: 'Comfortaa';
+  /* font-family: 'Ribeye'; */
+  /* font-family: 'Licorice'; */
+  /* font-family: "Franklin Gothic Medium', sans-serif"; */
+  /* font-weight: bold; */
+  text-align: justify;
+}
+
+.container-checkbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.checkbox-item {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* Contenedor principal */
+.producto-detalle {
+  max-width: 900px;
+  padding: 0 30px 0 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Título principal */
+.producto-detalle h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Subtítulos */
+.producto-detalle h3 {
+  margin-top: 25px;
+  color: #444;
+  padding-bottom: 5px;
+}
+
+/* Texto general */
+.producto-detalle p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Imagenes del producto */
+.producto-imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.producto-imagenes img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.producto-imagenes img:hover {
+  transform: scale(1.05);
+}
+
+/* Botones */
+.producto-detalle a,
+.producto-detalle button {
+  display: inline-block;
+  margin: 10px 8px 0 0;
+  padding: 8px 16px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.producto-detalle a:hover,
+.producto-detalle button:hover {
+  background-color: #357ab8;
+}
+
+/* Botón eliminar */
+.producto-detalle form button {
+  background-color: #d9534f;
+}
+
+.producto-detalle form button:hover {
+  background-color: #c9302c;
+}
+
+/* Mensaje sin imágenes */
+.sin-imagenes {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 6px;
+  color: #777;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* --------------------------------- */
+
+.user-perfil {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Imagen del usuario */
+.user-perfil img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000000;
+  margin-bottom: 15px;
+}
+
+/* En caso de no tener imagen */
+.user-perfil .sin-imagen {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 15px auto;
+  border: 2px dashed #ccc;
+}
+
+/* Nombre y datos */
+.user-perfil h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.user-perfil p {
+  font-size: 1rem;
+  color: #555;
+  margin: 6px 0;
+}
+
+/* Botones y enlaces */
+.user-perfil a,
+.user-perfil button {
+  display: inline-block;
+  margin: 10px 8px;
+  padding: 8px 16px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user-perfil a:hover,
+.user-perfil button:hover {
+  background-color: #357ab8;
+}
+
+/* Botón eliminar */
+.user-perfil form button {
+  background-color: #d9534f;
+}
+
+.user-perfil form button:hover {
+  background-color: #c9302c;
+}
+
+/* Espaciado general */
+.user-perfil form {
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  .user-perfil {
+    padding: 20px;
+  }
+
+  .user-perfil img,
+  .user-perfil .sin-imagen {
+    width: 110px;
+    height: 110px;
+  }
+
+  .user-perfil h2 {
+    font-size: 1.3rem;
+  }
+
+  .user-perfil a,
+  .user-perfil button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ------------------ */
+
+.error-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #ffe6e6;
+  border: 1px solid red;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.error-box ul {
+  margin: 10px 0;
+}
+
+.error-box li {
+  color: red;
+}
+
+.error-msg {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* --------------------------- */
+
+#filtrosCategorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+#inputProductos {
+  width: 20px;
+}
+
+#labelProductos {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 0 0 10px;
+}

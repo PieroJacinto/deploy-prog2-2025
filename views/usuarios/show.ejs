@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="user-perfil">
+    <div>
+        <% if (usuario.imagen) { %>
+            <img src="/images/usuarios/<%= usuario.imagen %>" alt="Perfil de: <%= usuario.nombre %>">
+        <% } else { %>
+            <div class="sin-imagen">
+                <span>Sin Imagen</span>
+            </div>
+        <% } %>
+    </div>
+
+    <h2>Usuario: <%= usuario.nombre %></h2>
+    <p><strong>Email:</strong> <%= usuario.email %></p>
+    <p><strong>ID:</strong> <%= usuario.id %></p>
+
+    <div>
+        <a href="/usuarios/edit/<%= usuario.id %>">Editar</a>
+        <form action="/usuarios/<%= usuario.id %>?_method=DELETE" method="POST">
+            <button onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
+                Eliminar
+            </button>
+        </form>
+        <a href="/usuarios">Volver</a>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs') %>
+
+<% if (errors.length > 0) { %>
+        <div class="error-box">
+            <strong>⚠️ Por favor corrige los siguientes errores:</strong>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <div class="user-perfil">
+        <h2>Editar categoria</h2>
+        <form action="/categorias/edit/<%= categoria.id %>?_method=PUT" method="POST">
+        <div>
+            <label for="nombre"> Nombre:</label>
+            <input  type="text"
+                    id="nombre"
+                    name="nombre"
+                    value="<%= typeof old !== 'undefined' ? old.nombre :  categoria.nombre %>"    
+            >
+        </div>
+
+        <div>
+            <label for="descripcion">Descripcion:</label>
+            <textarea name="descripcion" id="descripcion" > <%= typeof old !== 'undefined' ? old.descripcion :  categoria.descripcion %></textarea>
+        </div>
+    
+            <button type="submit">Enviar</button>
+        </form>
+        <div>
+        <form action="/categorias/<%= categoria.id %>?_method=DELETE" method="POST">
+            <button onclick="return confirm('¿Estás seguro de que quieres eliminar este categoria?');">
+                Eliminar
+            </button>
+        </form>
+        <a href="/categorias">Volver</a>
+    </div>
+    </div>
+<%- include('../partials/footer.ejs') %>

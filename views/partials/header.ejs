@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambar Artesanal</title>
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/velas.css">
+    <link rel="stylesheet" href="/styles/user.css">
+    <link rel="stylesheet" href="/styles/productos.css">
+    <link rel="stylesheet" href="/styles/about.css">
+    <link rel="stylesheet" href="/styles/infoaromas.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows Into Light" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'tan-mon-cheri';
+            src: url('/fonts/tan-mon-cheri.woff2') format('woff2'),
+                url('/fonts/tan-mon-cheri.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="titulo-barra">
+            <div>
+                <h1>Ambar</h1>
+                <h2>Tienda de Aromas</h2>
+            </div>
+            <div class="icons">
+                <a href="/usuarios">
+                    <img src="/images/person-outline.svg" alt="">
+                </a>
+                <!-- <a href="carrito.html">
+                <img src="images/cart-outline.svg" alt="">
+                </a> -->
+            </div>
+        </section>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li class="menu-item">
+                    <a href="#" class="menu-toggle">Productos ▼</a>
+                    <ul class="submenu">
+                        <li><a href="/productos">Velas</a></li>
+                        <!-- <li><a href="esencias.html">Esencias</a></li>
+                        <li><a href="combos.html">Combos</a></li> -->
+                    </ul>
+                </li>
+                <li><a href="/categorias" class="btn3">Categorias</a></li>
+                <li><a href="/infoaromas" class="btn3">Aromas</a></li>
+                <li><a href="/about" class="btn4">Sobre Ambar</a></li>
+                <% if (session.userRol==='admin' ) { %>
+                    <button></a></button>
+                    <span style="color: white; border: solid 1px;">
+                        ADMIN
+                    </span>
+                    <% } %>
+                        </span>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cargar dayjs desde CDN -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script src="/js/day.js"></script> -->

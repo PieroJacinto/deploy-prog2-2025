@@ -1,0 +1,39 @@
+.new-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.formNew {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formNew input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.formButtonProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-product button {
+    margin: 20px;
+    width: 80px;
+    height: 34px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    border: solid 1px;
+    padding: 7px;
+    border-radius: 5px;
+}

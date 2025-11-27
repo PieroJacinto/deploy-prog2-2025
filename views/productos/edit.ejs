@@ -1,0 +1,89 @@
+    <%- include('../partials/header',{h1:h1}) %>
+
+    <form action="/productos/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="nombre"> Nombre:</label>
+            <input  type="text"
+                    id="nombre"
+                    name="nombre"
+                    value="<%= typeof old !== 'undefined' ? old.nombre :  producto.nombre %>"    
+            >
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input  type="number"
+                    id="precio"
+                    name="precio"
+                    value="<%= typeof old !== 'undefined' ? old.precio :  producto.precio %>"
+            >
+        </div>
+        <div>
+            <label for="descripcion">Descripcion:</label>
+            <textarea name="descripcion" id="descripcion" > <%= typeof old !== 'undefined' ? old.descripcion :  producto.descripcion %></textarea>
+        </div>
+        <div>
+            <label for="usuario_id">Dueño</label>
+            <select name="usuario_id" id="usuario_id">                
+                <% usuarios.forEach(usuario => { %>
+                    <option value="<%= usuario.id %>"
+                        <%= (typeof old !== 'undefined' ? old.usuario_id :  producto.usuario_id) == usuario.id ? 'selected': '' %>
+                    >
+                        <%= usuario.nombre %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="usuario_id">Categorias</label>
+            <%  let categoriasActuales = producto.categorias ? producto.categorias.map(cat => cat.id) : [] %>
+            <% categorias.forEach(categoria => { %>
+                <div>
+                    <input  type="checkbox"
+                            id="cat_<%=categoria.id%>"
+                            name="categorias"
+                            value="<%= categoria.id %>"
+                            <%= categoriasActuales.includes(categoria.id) ? 'checked' : '' %>
+                    >
+                    <label for="cat_<%=categoria.id%>"><%= categoria.nombre %></label>
+                </div>
+            <% }) %>
+        </div>
+
+        <div>
+            <h3>Imagenes actuales:</h3>
+            <% if (producto.imagenes && producto.imagenes.length > 0) { %>
+             <div>
+                <% producto.imagenes.forEach(imagen => { %>
+                    <div>
+                        <img src="/images/productos/<%=imagen.imagen %>" alt="">
+                        <input type="checkbox"
+                                name="imagenes_eliminar"
+                                value="<%=imagen.id %>"
+                                id="img_<%=imagen.id %>"
+                        >
+                        <label for="img_<%=imagen.id %>">Eliminar esta imagen</label>
+                    </div>
+                <% }) %>
+             </div>
+            <% }else{ %>
+                <p>no hay imagenes para este producto</p>
+            <% } %>
+        </div>
+
+        <div>
+            <label for="imagenes_producto">Agregas nuevas imagenes</label>
+            <input  type="file"
+                    id="imagenes_producto"
+                    name="imagenes_producto"
+                    accept="image/*"
+                    multiple
+            >
+            <small>Selecciona hasta 5 imágenes (Considerando las actuales). Máximo 5MB cada una. Formatos: JPG, PNG, GIF</small>
+        </div>
+
+            <button type="submit">Guardar</button>
+        <a href="/productos/show/<%= producto.id %>">Cancelar</a>
+    
+    </form>
+    
+<%- include('../partials/footer.ejs') %>

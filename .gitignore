@@ -1,0 +1,12 @@
+
+node_modules/
+.env
+.env.local
+.env.production
+.vercel
+*.log
+.DS_Store
+public/images/productos/*
+public/images/usuarios/*
+!public/images/productos/.gitkeep
+!public/images/usuarios/.gitkeepaccesos.txt

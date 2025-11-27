@@ -1,0 +1,136 @@
+img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#velas {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+header {
+    position: sticky;
+    /* top: -112px; */
+    z-index: 100;
+}
+
+.contVelas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    margin: 20px;
+}
+
+.velacardAll {
+    text-decoration: none;
+}
+
+.velacard {
+    display: grid;
+    align-content: space-between;
+    justify-items: center;
+    width: 220px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    overflow: hidden;
+    /* background-color: #b46b54; */
+    text-align: center;
+    /* padding: 10px; */
+    position: relative; /* Para que las imágenes se superpongan */
+}
+
+/* ----------------------------------------------- */
+
+.velacard .hover-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    opacity: 0; /* La imagen de hover está oculta por defecto */
+    transition: opacity 0.3s ease;
+}
+
+.velacard:hover .main-image {
+    opacity: 0; /* Desaparece la imagen principal al hacer hover */
+}
+
+.velacard:hover .hover-image {
+    opacity: 1; /* La imagen de hover aparece al hacer hover */
+}   
+
+/* ----------------------------------------------- */
+
+.velacard p {
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-align: left;
+    padding: 10px 10px 0px 10px;;
+    margin: 0px;
+    color: #000000;
+}
+
+.velacard:hover {
+    transform: scale(1.05);
+   /* movimiento al pasar el mouse */
+}
+
+.velacard h3 {
+    color: #000000;
+    margin: 0;
+    padding: 8px;
+}
+
+.product-all {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+.product-all a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #222;
+}
+
+@media (max-width: 767px) {
+    .contVelas {
+        display: flex;
+        gap: 20px;
+        align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+  }
+  .velacard {
+    border-radius: 8px;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    /* background-color: #b46b54; */
+    text-align: center;
+    /* padding: 10px; */
+}
+}
+
+.velacard button {
+    width: 80%;
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Para que el cursor se vuelva una manito indicando accion */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.velacard button:hover {
+    background-color: #68a5d6;
+}

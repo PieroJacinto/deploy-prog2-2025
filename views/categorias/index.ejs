@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+    <div class="user-all">
+        <h1 class="user-title">Nuestras categorias</h1>
+        <a href="/categorias/create">Agregar categoria</a>
+    </div>
+    <div class="cardAllUsers">
+        <% categorias.forEach(categoria=> { %>
+            <div class="cardUser">
+                <a href="/categorias/edit/<%=categoria.id%>"> <!--Es como invocar una funcion-->
+                    <h3> <%=categoria.nombre%>
+                </a>
+                    <div>
+                        <p><%=categoria.descripcion%></p>
+                    </div>
+            </div>
+            <% }) %>
+    </div>
+<%- include('../partials/footer') %>
